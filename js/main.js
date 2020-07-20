@@ -13,11 +13,8 @@
 ---------------------------------
   01. jQuery MeanMenu
   02. wow js active
-  03. Project  Masonry
   04. Sticky Header
   05. ScrollUp
-  06. Testimonial Slick Carousel
-  07. Testimonial Slick Carousel
   08. CounterUp
   16. ScrollReveal Js Init
   17. Magnific Popup
@@ -29,31 +26,106 @@
 [ End table content ]
 -----------------------------------*/
 
-// var vueApp = new Vue({
-//   data: {
-//     times: "",
-//     phone: "",
-//     menu: {
-//       HOME: {
-//         "Home 01": "index.html",
-//         "Home 02": "index-2.html",
-//         "Home 03": "index-3.html"
-//       },
-//       ABOUT: "about.html",
-//       SERVICE: "service.html",
-
-//     }
-//   },
-//   methods: {
-
-//   },
-//   mounted() {
-//   }
-// })
-
-(function($) {
-    'use strict';
-
+const appVue = new Vue({
+  el: '#root',
+  data: {
+    local: "vi",
+    facts: {
+      "SẢN PHẨM": 200,
+      "KHÁCH HÀNG": 300
+    },
+    blog: {
+      latest: [
+        {
+          id: "",
+          image: "images/blog/blog-img/1.jpg",
+          title: "Lorem ipsum dolor sit amet, cotur adipiscing elit, sed do eiusmod"
+        },
+        {
+          id: "",
+          image: "images/blog/blog-img/2.jpg",
+          title: "Lorem ipsum dolor sit amet, cotur adipiscing elit, sed do eiusmod"
+        },
+        {
+          id: "",
+          image: "images/blog/blog-img/3.jpg",
+          title: "Lorem ipsum dolor sit amet, cotur adipiscing elit, sed do eiusmod"
+        }
+      ],
+      allBlogs: [
+        {
+          id: "",
+          image: "images/blog/blog-img/3.jpg",
+          title: "Lorem ipsum dolor sit amet, cotur adipiscing elit, sed do eiusmod"
+        }
+      ]
+    },
+    product: {
+      latest: [
+        {
+          id: "",
+          image: "images/lst-project-3/2.jpg",
+          name: "Máy xúc doosan",
+          code: "12345",
+          origin: "Hàn Quốc"
+        },
+        {
+          id: "",
+          image: "images/lst-project-3/3.jpg",
+          name: "Máy xúc doosan",
+          code: "12345",
+          origin: "Hàn Quốc"
+        },
+        {
+          id: "",
+          image: "images/lst-project-3/4.jpg",
+          name: "Máy xúc doosan",
+          code: "12345",
+          origin: "Hàn Quốc"
+        },
+        {
+          id: "",
+          image: "images/lst-project-3/5.jpg",
+          name: "Máy xúc doosan",
+          code: "12345",
+          origin: "Hàn Quốc"
+        }
+      ],
+      allProducts: [
+        {
+          id: "",
+          image: "images/lst-project-3/2.jpg",
+          name: "Máy xúc doosan",
+          code: "12345",
+          origin: "Hàn Quốc"
+        },
+        {
+          id: "",
+          image: "images/lst-project-3/3.jpg",
+          name: "Máy xúc doosan",
+          code: "12345",
+          origin: "Hàn Quốc"
+        },
+      ]
+    },
+    instagram: [
+      "images/blog/sm-img/1.jpg",
+      "images/blog/sm-img/2.jpg",
+      "images/blog/sm-img/3.jpg",
+      "images/blog/sm-img/4.jpg",
+      "images/blog/sm-img/5.jpg",
+      "images/blog/sm-img/6.jpg"
+    ]
+  },
+  methods: {
+    ilang(reference) {
+      return ilang(reference, this.local)
+    }
+  },
+  mounted() {
+    new WOW().init();
+  }
+})
 
 /*-------------------------------------------
   01. jQuery MeanMenu
@@ -64,44 +136,6 @@ $('.mobile-menu nav').meanmenu({
     meanScreenWidth: "991",
     meanRevealPosition: "right",
 });
-/*-------------------------------------------
-  02. wow js active
---------------------------------------------- */
-    new WOW().init();
-
-
-/*-------------------------------------------
-  03. Project  Masonry
---------------------------------------------- */ 
-
-$('.htc__project__container').imagesLoaded( function() {
-  
-    // filter items on button click
-    $('.project__menu').on( 'click', 'button', function() {
-      var filterValue = $(this).attr('data-filter');
-      $grid.isotope({ filter: filterValue });
-    }); 
-    // init Isotope
-    var $grid = $('.htc__latest__project__wrap').isotope({
-      itemSelector: '.single__project',
-      percentPosition: true,
-      transitionDuration: '0.7s',
-      layoutMode: 'fitRows',
-      masonry: {
-        // use outer width of grid-sizer for columnWidth
-        columnWidth: '.single__project',
-      }
-    });
-
-});
-
-$('.project__menu button').on('click', function(event) {
-    $(this).siblings('.is-checked').removeClass('is-checked');
-    $(this).addClass('is-checked');
-    event.preventDefault();
-});
-
-
 
 /*-------------------------------------------
   04. Sticky Header
@@ -128,46 +162,14 @@ $('.project__menu button').on('click', function(event) {
     animation: 'fade'
   });
 
-
-/*---------------------------------------------
-  06. Testimonial Slick Carousel
-------------------------------------------------*/
-  $('.testimonial__activation').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    draggable: true,
-    // fade: true,
-    dots: true,
-  });
-
-
-/*------------------------------------------
-  07. Testimonial Slick Carousel
--------------------------------------------*/
-  $('.testimonial__activation--2').slick({
-    slidesToShow: 2,
-    slidesToScroll: 2,
-    arrows: false,
-    draggable: true,
-    // fade: true,
-    dots: true,
-  });
-
-
-
 /*-----------------------------
   08. CounterUp
 -----------------------------*/
+
   $('.count').counterUp({
     delay: 60,
     time: 3000
   });
-
-
-
-
-
 
 /*-----------------------------------------------
   15. Home Slider
@@ -195,8 +197,6 @@ $('.project__menu button').on('click', function(event) {
     });
   }
 
-
-
 /*-----------------------------------
   16. ScrollReveal Js Init
 -------------------------------------- */
@@ -204,11 +204,6 @@ $('.project__menu button').on('click', function(event) {
   window.sr = ScrollReveal({ duration: 800 , reset: false });
     sr.reveal('.foo');
     sr.reveal('.bar');
-
-
-
-
-
 
 /*--------------------------------
   17. Magnific Popup
@@ -232,46 +227,6 @@ $('.image-popup').magnificPopup({
       enabled:true, 
   }
 });
-
-
-
-
-
-
-/*-----------------------------------------------
-  16. Blog Slider
--------------------------------------------------*/
-
-  if ($('.blog__activation').length) {
-    $('.blog__activation').owlCarousel({
-      loop: true,
-      margin:0,
-      nav:true,
-      autoplay: false,
-      navText: [ '<i class="zmdi zmdi-chevron-left"></i>', '<i class="zmdi zmdi-chevron-right"></i>' ],
-      autoplayTimeout: 10000,
-      items:1,
-      dots: false,
-      lazyLoad: true,
-      responsive:{
-        0:{
-          items:1
-        },
-        600:{
-          items:1
-        }
-      }
-    });
-  }
-
-
-
-
-
-
-
-
-})(jQuery);
 
 
 
