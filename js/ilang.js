@@ -11,18 +11,15 @@ const lang = {
         website: "http://daovietanh.github.io",
         productcode: "Product code",
         origin: "Origin",
+        views: "Views",
         readmore: "Read more",
         detail: "Detail",
         block: {
             aboutus: "ABOUT US",
             quicklink: "QUICK LINK",
-            instagram: "INSTAGRAM",
-            about: "ABOUT",
-            us: "US",
-            product: "LATEST",
-            outstanding: "PRODUCT",
-            tin: "LATEST",
-            tuc: "NEWS",
+            products: "PRODUCTS",
+            latestproduct: "LATEST PRODUCTS",
+            tintuc: "NEWS",
             contactus: "Contact us",
             statistics: "REVENUE",
             revenue: "STATISTICS",
@@ -30,14 +27,11 @@ const lang = {
             wherewelocated: "WHERE WE LOCATED",
             sendusmessage: "SEND US A MESSAGE",
             timeline: "TIMELINE",
-            ourmission: "OUR MISSION"
-        },
-        menu: {
-            "Home": "index.html",
-            "Products": "projects.html",
-            "News": "blog.html",
-            "Contact": "contact.html",
-            "About": "about.html"
+            ourmission: "OUR MISSION",
+            recentpost: "RECENT POST",
+            productdetails: "PRODUCT DETAILS",
+            relatedproduct: "RELATED PRODUCT",
+            specifications: "SPECIFICATIONS"
         },
         slides: [
             {
@@ -64,16 +58,6 @@ const lang = {
               description: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled demoralized"
             }
         ],
-        about: {
-            shortDescription: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled demoralized On the other hand, we denounce",
-            content: [
-                {
-                    title: "Giới thiệu chung",
-                    shortDescription: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled demoralized On the other hand, we denounce with",
-                    icon: "images/others/icon/1.png"
-                }
-            ]
-        },
         messageForm: {
             yourname: "Your Name*",
             youremail: "Your Email*",
@@ -94,18 +78,15 @@ const lang = {
         website: "http://daovietanh.github.io",
         productcode: "Mã sản phẩm",
         origin: "Xuất xứ",
+        views: "Lượt xem",
         readmore: "XEM THÊM",
-        detail: "Xem chi tiểt",
+        detail: "Xem chi tiết",
         block: {
             aboutus: "GIỚI THIỆU CHUNG",
             quicklink: "ĐƯỜNG DẪN",
-            instagram: "KHO ẢNH",
-            about: "GIỚI THIỆU",
-            us: "CHUNG",
-            product: "SẢN PHẨM",
-            outstanding: "NỔI BẬT",
-            tin: "TIN",
-            tuc: "TỨC",
+            latestproduct: "SẢN PHẨM NỔI BẬT",
+            products: "CÁC SẢN PHẨM",
+            tintuc: "TIN TỨC",
             contactus: "Liên hệ với chúng tôi",
             statistics: "THỐNG KÊ",
             revenue: "DOANH THU",
@@ -113,14 +94,11 @@ const lang = {
             wherewelocated: "BẢN ĐỒ CÔNG TY",
             sendusmessage: "GỬI TIN NHẮN CHO CHÚNG TÔI",
             timeline: "CHẶNG ĐƯỜNG PHÁT TRIỂN",
-            ourmission: "TẦM NHÌN CHIẾN LƯỢC"
-        },
-        menu: {
-            "Trang chủ": "index.html",
-            "Các sản phẩm": "projects.html",
-            "Tin tức": "blog.html",
-            "Liên hệ": "contact.html",
-            "Giới thiệu": "about.html"
+            ourmission: "TẦM NHÌN CHIẾN LƯỢC",
+            recentpost: "TIN TỨC",
+            productdetails: "THÔNG TIN SẢN PHẨM",
+            relatedproduct: "SẢN PHẨM LIÊN QUAN",
+            specifications: "THÔNG SỐ KỸ THUẬT"
         },
         slides: [
             {
@@ -147,29 +125,6 @@ const lang = {
               description: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled demoralized"
             }
         ],
-        about: {
-            shortDescription: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled demoralized On the other hand, we denounce",
-            content: [
-                {
-                    title: "Giới thiệu chung",
-                    shortDescription: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled demoralized On the other hand, we denounce with",
-                    content: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment",
-                    icon: "images/others/icon/1.png"
-                },
-                {
-                    title: "Tầm nhìn chiến lược",
-                    shortDescription: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled demoralized On the other hand, we denounce with",
-                    content: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment",
-                    icon: "images/others/icon/2.png"
-                },
-                {
-                    title: "Chặng đường phát triển",
-                    shortDescription: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled demoralized On the other hand, we denounce with",
-                    content: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment",
-                    icon: "images/others/icon/3.png"
-                }
-            ]
-        },
         messageForm: {
             yourname: "Tên của bạn*",
             youremail: "Email của bạn*",

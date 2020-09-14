@@ -5,13 +5,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>About Us || Simply Construction HTML5 Template</title>
+    <title>Blog || Simply Construction HTML5 Template</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- All css files are included here. -->
     <!-- Bootstrap fremwork main css -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- User style -->
@@ -30,9 +29,9 @@
 
 <body>
     <div id="root">
-    {{setPageId(2)}}
+    {{setPageId(3)}}
     <!--[if lt IE 8]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->  
 
     <!-- Body main wrapper start -->
@@ -53,77 +52,62 @@
                 </div>
             </div>
             <!-- End Header Top -->
-           <!-- Start Mainmenu Area -->
-           <div class="sticky__header" v-bind:class="{'scroll-header': scrollMenu}">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-2 col-sm-6 col-xs-7">
-                        <div class="logo">
-                            <a href="index.html">
-                                <img v-bind:src="ilang('logoLink')" alt="logo image">
-                            </a>
+            <!-- Start Mainmenu Area -->
+            <div class="sticky__header" v-bind:class="{'scroll-header': scrollMenu}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-6 col-xs-7">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img v-bind:src="ilang('logoLink')" alt="logo image">
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-10 col-sm-6 col-xs-5">
-                        <nav class="hidden-xs hidden-sm">
-                            <nested-menu v-bind:list="menu" v-bind:main="true" v-bind:page="'about.html'"></nested-menu>
-                        </nav>
-                        <div class="mobile-menu visible-xs visible-sm">
-                            <nav id="mobile_dropdown">
-                                <nested-menu v-bind:list="menu" v-bind:mobile="true"></nested-menu>
+                        <div class="col-md-10 col-sm-6 col-xs-5">
+                            <nav class="hidden-xs hidden-sm">
+                                <nested-menu v-bind:list="menu" v-bind:main="true" v-bind:page="'news.html'"></nested-menu>
                             </nav>
+                            <div class="mobile-menu visible-xs visible-sm">
+                                <nav id="mobile_dropdown">
+                                    <nested-menu v-bind:list="menu" v-bind:mobile="true"></nested-menu>
+                                </nav>
+                            </div>
                         </div>
                     </div>
+                    <div class="mobile-menu-area"></div>
                 </div>
-                <div class="mobile-menu-area"></div>
             </div>
-        </div>
-        <!-- End Mainmenu Area -->
+            <!-- End Mainmenu Area -->
         </div>
         <!-- End Header Style -->
         <!-- Start Bradcaump area -->
-        <breadcrumb bread="2"></breadcrumb>
+        <breadcrumb bread="3"></breadcrumb>
         <!-- End Bradcaump area -->
-        <!-- Start Offer Area -->
-        <section class="bg__gray ptb--100">
+        <!-- Start Blog Area -->
+        <section class="bg__white ptb--100">
             <div class="container">
                 <div class="row">
-                    <h2 class="title__line--5">{{ilang('block.aboutus')}}</h2>
+                    <h2 class="title__line--5">{{ilang('block.tintuc')}}</h2>
                 </div>
-                <div class="row pt--10">
-                    <div class="ql-editor">
-                        <p>vietanh</p>
+                <div class="row">
+                    <div class="mt--30">
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                            <div class="row">
+                                <news-list v-bind:list="news.allNews"/>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- End Offer Area -->
-        <!-- Start Offer Area -->
-        <section class="pt--100 bg__white">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12" v-for="item in ilang('offers')">
-                        <div class="offer">
-                            <div class="offer__icon">
-                                <img v-bind:src="item.icon" alt="icon images">
-                            </div>
-                            <div class="offer__details">
-                                <h2><a href="#">{{item.title}}</a></h2>
-                                <p>{{item.description}}</p>
-                            </div>
-                        </div>
-                    </div>      
-                </div>
-            </div>
-        </section>
-        <!-- End Offer Area -->
+        <!-- End Blog Area -->
          <!-- Start Footer Area -->
          <customfooter></customfooter>
          <!-- End Footer Area -->
          <a id="back-to-top" class="transition" v-on:click="scrollTop()" v-bind:class="{show: showScrollTop}">
              <i class='fa fa-angle-up'></i>
          </a>
-    </div> 
+    </div>
     </div>
     <!-- Body main wrapper end -->
 

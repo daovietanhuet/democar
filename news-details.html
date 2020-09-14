@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -5,18 +6,22 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>About Us || Simply Construction HTML5 Template</title>
+    <title>Blog Details || Simply Construction HTML5 Template</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+
     <!-- All css files are included here. -->
     <!-- Bootstrap fremwork main css -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- User style -->
     <link rel="stylesheet" href="css/custom.css">
     <!-- Modernizr JS -->
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -30,9 +35,8 @@
 
 <body>
     <div id="root">
-    {{setPageId(2)}}
     <!--[if lt IE 8]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->  
 
     <!-- Body main wrapper start -->
@@ -66,7 +70,7 @@
                     </div>
                     <div class="col-md-10 col-sm-6 col-xs-5">
                         <nav class="hidden-xs hidden-sm">
-                            <nested-menu v-bind:list="menu" v-bind:main="true" v-bind:page="'about.html'"></nested-menu>
+                            <nested-menu v-bind:list="menu" v-bind:main="true" v-bind:page="'news.html'"></nested-menu>
                         </nav>
                         <div class="mobile-menu visible-xs visible-sm">
                             <nav id="mobile_dropdown">
@@ -82,48 +86,42 @@
         </div>
         <!-- End Header Style -->
         <!-- Start Bradcaump area -->
-        <breadcrumb bread="2"></breadcrumb>
+        <breadcrumb bread="3"></breadcrumb>
         <!-- End Bradcaump area -->
-        <!-- Start Offer Area -->
-        <section class="bg__gray ptb--100">
+        <!-- Start Blog Area -->
+        <section class="blog--details ptb--50 bg__white">
             <div class="container">
                 <div class="row">
-                    <h2 class="title__line--5">{{ilang('block.aboutus')}}</h2>
-                </div>
-                <div class="row pt--10">
-                    <div class="ql-editor">
-                        <p>vietanh</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Offer Area -->
-        <!-- Start Offer Area -->
-        <section class="pt--100 bg__white">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12" v-for="item in ilang('offers')">
-                        <div class="offer">
-                            <div class="offer__icon">
-                                <img v-bind:src="item.icon" alt="icon images">
-                            </div>
-                            <div class="offer__details">
-                                <h2><a href="#">{{item.title}}</a></h2>
-                                <p>{{item.description}}</p>
+                	<div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
+                        <div class="blog__inner">
+                            <div class="blog__container">
+                                <div class="ql-editor">
+                                    <h2><b>{{news.currentNews.title}}</b></h2>
+                                    <div><span class="clock-icon"></span> {{news.currentNews.createdAt}}</div>
+                                    {{news.currentNews.fullContent}}
+                                </div>
                             </div>
                         </div>
-                    </div>      
+                	</div>
+                	<div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                        <div>
+                            <h2 class="sidebar__title">{{ilang('block.relatedproduct')}}</h2>
+                            <!-- Start Single Blog -->
+                            <product-list v-bind:list="product.allProducts" v-bind:full="true"/>
+                            <!-- End Single Blog -->
+                        </div>
+                	</div>
                 </div>
             </div>
         </section>
-        <!-- End Offer Area -->
+        <!-- End Blog Area -->
          <!-- Start Footer Area -->
          <customfooter></customfooter>
          <!-- End Footer Area -->
          <a id="back-to-top" class="transition" v-on:click="scrollTop()" v-bind:class="{show: showScrollTop}">
              <i class='fa fa-angle-up'></i>
          </a>
-    </div> 
+    </div>
     </div>
     <!-- Body main wrapper end -->
 

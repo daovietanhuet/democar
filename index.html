@@ -1,42 +1,33 @@
 <!doctype html>
 <html class="no-js" lang="en">
-
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
     <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    
-
     <!-- All css files are included here. -->
     <!-- Bootstrap fremwork main css -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Owl Carousel  main css -->
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <!-- This core.css file contents all plugings css file. -->
-    <link rel="stylesheet" href="css/core.css">
-    <!-- Theme shortcodes/elements style -->
-    <link rel="stylesheet" href="css/shortcode/shortcodes.css">
-    <!-- Theme main style -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Responsive css -->
-    <link rel="stylesheet" href="css/responsive.css">
     <!-- User style -->
     <link rel="stylesheet" href="css/custom.css">
-
-
     <!-- Modernizr JS -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
 </head>
 
 <body>
     <div id="root">
+        {{setPageId(0)}}
         <title>{{ilang('title')}}</title>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -45,13 +36,13 @@
         <!-- Body main wrapper start -->
         <div class="wrapper">
             <!-- Start Header Style -->
-            <div id="header" class="htc-header">
+            <div id="header">
                 <!-- Start Header Top -->
-                <div class="htc__header__top bg__cat--1">
+                <div class="bg__cat--1">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                <ul class="heaher__top__left">
+                                <ul class="heaher__top__left hidden-xs hidden-sm">
                                     <li><i class="fa fa-clock-o"></i>{{ilang('time')}}</li>
                                     <li><a href="#"><i class="fa fa-phone"></i>{{ilang('phone')}}</a></li>
                                 </ul>
@@ -61,7 +52,7 @@
                 </div>
                 <!-- End Header Top -->
                 <!-- Start Mainmenu Area -->
-                <div id="sticky-header-with-topbar" class="mainmenu__wrap sticky__header">
+                <div class="sticky__header" v-bind:class="{'scroll-header': scrollMenu}">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-2 col-sm-6 col-xs-7">
@@ -72,16 +63,12 @@
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-6 col-xs-5">
-                                <nav class="main__menu__nav  hidden-xs hidden-sm">
-                                    <ul class="main__menu">
-                                        <li v-for="(value, name) in ilang('menu')"><a v-bind:style="{color: value=='index.html' ? '#fcc236' : ''}" v-bind:href="value">{{name}}</a></li>
-                                    </ul>
+                                <nav class="hidden-xs hidden-sm">
+                                    <nested-menu v-bind:list="menu" v-bind:main="true" v-bind:page="'index.html'"></nested-menu>
                                 </nav>
-                                <div class="mobile-menu clearfix visible-xs visible-sm">
+                                <div class="mobile-menu visible-xs visible-sm">
                                     <nav id="mobile_dropdown">
-                                        <ul>
-                                            <li v-for="(value, name) in ilang('menu')"><a v-bind:style="{color: value=='index.html' ? '#fcc236' : ''}" v-bind:href="value">{{name}}</a></li>
-                                        </ul>
+                                        <nested-menu v-bind:list="menu" v-bind:mobile="true"></nested-menu>
                                     </nav>
                                 </div>
                             </div>
@@ -93,39 +80,21 @@
             </div>
             <!-- End Header Style -->
             <!-- Start Slider Area -->
-            <div class="slider__container">
-                <div class="slider__activation__wrap owl-carousel owl-theme">
-                    <!-- Start Single Slide -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
                     <div 
+                        class="swiper-slide" 
                         v-for="item in ilang('slides')"
-                        class="slide slider__fixed--height slide__align--center" 
                         v-bind:style="{background: 'rgba(0, 0, 0, 0) url(' + item.background + ') no-repeat scroll 0 0 / cover'}" 
-                        data--black__overlay="6"
-                    >
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 col-lg-12">
-                                    <div class="slider__inner">
-                                        <h4>{{item.time}}</h4>
-                                        <h1>{{item.title}}</h1>
-                                        <p>{{item.content}}</p>
-                                        <div class="slider__btn">
-                                            <a class="htc__btn" href="contact.html">{{ilang('block.contactus')}}</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="htc__slider__fornt__img">
-                            <img src="images/slider/fornt-img/1.png" alt="slider images">
-                        </div>
-                    </div>
-                    <!-- End Single Slide -->
+                        style="height: 500px; width: 100%"
+                    ></div>
                 </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
             <!-- End Slider Area -->
             <!-- Start Offer Area -->
-            <section class="htc__offer__area htc__offer--2 pb--120 bg__gray">
+            <section class="bg__gray ptb--50">
                 <div class="container">
                     <div class="row">
                         <!--Start Single Offer-->
@@ -143,271 +112,50 @@
                         <!-- End Single Offer-->              
                     </div>
                 </div>
-                <div class="h1__offer__image">
-                    <img src="images/others/1.png" alt="">
-                </div>
             </section>
             <!-- End Offer Area -->
-                       <!-- Start Blog Area -->
-                       <section class="htc__blog__area pt--150 bg__white ptb--150">
-                        <div class="container">
-                            <div class="row">
-                                <div class="section__title text-center">
-                                    <h2 class="title__line">{{ilang('block.tin')}} <span class="text--theme">{{ilang('block.tuc')}}</span></h2>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="htc__blog__wrap mt--30 clearfix">
-                                    <!-- Start Single Blog -->
-                                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12" v-for="item in blog.latest">
-                                        <div class="blog foo">
-                                            <div class="blog__thumb">
-                                                <a href="blog-details.html">
-                                                    <img v-bind:src="item.image" alt="blog image">
-                                                </a>
-                                            </div>
-                                            <div class="blog__details">
-                                                <h2><a href="blog-details.html">{{item.title}} </a></h2>
-                                                <div class="blog__btn">
-                                                    <a href="blog-details.html">{{ilang('readmore')}}<i class="zmdi zmdi-long-arrow-right"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Single Blog-->
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                <!-- End Blog Area -->
-            <!-- Start Latest Project Area -->
-            <section class="htc__latest__project__area bg__white text__pos">
+            <!-- Start Blog Area -->
+            <section class="bg__white pt--50 pb--100">
                 <div class="container">
                     <div class="row">
-                        <div class="col-xs-12">
-                            <div class="section__title text-center">
-                                <h2 class="title__line">{{ilang('block.product')}} <span class="text--theme">{{ilang('block.outstanding')}}</span></h2>
-                            </div>
-                        </div>
+                        <h2 class="title__line--5">{{ilang('block.tintuc')}}</h2>
                     </div>
                     <div class="row">
-                        <div class="htc__latest__project__wrap h1__project clearfix mt--30">
+                        <div class="mt--30">
                             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                 <div class="row">
-                                    <!-- Start Single Product-->
-                                    <div class="col-md-3 col-sm-3 col-xs-12" v-for="item in product.latest">
-                                        <div class="project__itm foo">
-                                            <div class="project__thumb">
-                                                <a href="single-project.html">
-                                                    <img v-bind:src="item.image" alt="project images">
-                                                    <div class="product-name">{{item.name}}</div>
-                                                </a>
-                                                <div class="project__hover__info">
-                                                    <div class="project__action">
-                                                        <div class="project__action">
-                                                            <h4>{{item.name}}</h4>
-                                                            <h5>{{ilang('productcode')}}: {{item.code}}</h5>
-                                                            <h5>{{ilang('origin')}}: {{item.origin}}</h5>
-                                                            <h2><a href="single-project.html">{{ilang('detail')}}</a></h2>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Single Product-->
+                                    <news-list v-bind:list="news.allNews" v-bind:sublist="news.allNews"/>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="text__shape">
-                    <h2>PRODUCTS</h2>
+            </section>
+            <!-- End Blog Area -->
+            <!-- Start Latest Project Area -->
+            <section class="bg__white">
+                <div class="container">
+                    <div class="row">
+                        <h2 class="title__line--5">{{ilang('block.latestproduct')}}</h2>
+                    </div>
+                    <div class="row">
+                        <div class="mt--30">
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                <div class="row">
+                                    <product-list v-bind:list="product.allProducts" v-bind:large="true"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
             <!-- End Latest Project Area -->
-            <!-- Start Counter Up Area -->
-            <section class="htc__counterup__area count--2 h1__countdown pt--150">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-4 col-sm-12 col-xs-12">
-                            <div class="counterup__left__thumb">
-                                <img src="images/about/4.png" alt="images">
-                            </div>
-                        </div>
-                        <div class="col-md-8 col-sm-12 col-xs-12">
-                            <div class="htc__callto__action">
-                                <h2># {{ilang('block.statistics')}} <span class="text--theme">{{ilang('block.revenue')}}</span></h2>
-                            </div>
-                            <div class="htc__counterup__wrap" style="background: rgba(0, 0, 0, 0) url(images/bg/10.png) no-repeat scroll center center / cover ;">
-                                <!-- Start Single Fact -->
-                                <div class="funfact" v-for="(value, key) in facts">
-                                    <div class="fact__details">
-                                        <div class="funfact__count__inner">
-                                            <div class="fact__count ">
-                                                <span class="count">{{value}}</span>
-                                            </div>
-                                        </div>
-                                        <div class="fact__title">
-                                            <h2>{{key}}</h2>
-                                        </div>
-                                    </div>
-                                </div> 
-                                <!-- End Single Fact -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- End Counter Up Area -->
-                <!-- Start About Area -->
-                <section class="htc__about__area about--2 text__pos ptb--150 bg__white">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="section__title text-center">
-                                    <h2 class="title__line">{{ilang('block.about')}} <span class="text--theme">{{ilang('block.us')}}</span></h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mt--70">
-                            <div class="col-md-4 col-lg-3 col-lg-offset-1 col-sm-6 col-xs-12" v-for="item in ilang('about.content')">
-                                <div class="about foo">
-                                    <div class="about__inner">
-                                        <h2><a href="about.html">{{item.title}}</a></h2>
-                                        <p>{{item.shortDescription}}</p>
-                                        <div class="about__btn">
-                                            <a href="about.html">{{ilang('readmore')}}</a>
-                                        </div>
-                                        <div class="about__icon">
-                                            <img v-bind:src="item.icon" alt="icon images">
-                                        </div>
-                                    </div>
-                                    <div class="about__inner about__hober__info">
-                                        <h2><a href="about.html">{{item.title}}</a></h2>
-                                        <p>{{item.shortDescription}}</p>
-                                        <div class="about__btn">
-                                            <a href="about.html">{{ilang('readmore')}}</a>
-                                        </div>
-                                        <div class="about__icon">
-                                            <img v-bind:src="item.icon" alt="icon images">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text__shape">
-                        <h2>VEHICLE</h2>
-                    </div>
-                </section>
-                <!-- End About Area -->
-            <!-- Start Contact Address -->
-            <div class="htc__contact__address add-res bg__cat--1">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="htc__contact__wrap clearfix">
-                                <!-- Start Single Address -->
-                                <div class="ht__address__inner">
-                                    <div class="ht__address__icon map-pin">
-                                        <i class="zmdi zmdi-pin"></i>
-                                    </div>
-                                    <div class="ht__address__details">
-                                        <p> {{ilang('detailAddress')}} <br> {{ilang('address')}} </p>
-                                    </div>
-                                </div>
-                                <!-- End Single Address -->
-                                <!-- Start Single Address -->
-                                <div class="ht__address__inner">
-                                    <div class="ht__address__icon glob">
-                                        <i class="fa fa-globe" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="ht__address__details">
-                                        <p><a href="#">{{ilang('email')}}</a></p>
-                                        <p><a href="#">{{ilang('website')}}</a></p>
-                                    </div>
-                                </div>
-                                <!-- End Single Address -->
-                                <!-- Start Single Address -->
-                                <div class="ht__address__inner">
-                                    <div class="ht__address__icon">
-                                        <i class="fa fa-phone" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="ht__address__details">
-                                        <p><a href="#">{{ilang('hotline')}}</a></p>
-                                        <p><a href="#">{{ilang('phone')}}</a></p>
-                                    </div>
-                                </div>
-                                <!-- End Single Address -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Contact Address -->
             <!-- Start Footer Area -->
-            <footer class="htc__footer__area">
-                <div class="footer__top ptb--130" data--1f2d30__overlay="9.5" style="background: rgba(0, 0, 0, 0) url(images/bg/2.jpg) no-repeat fixed center center / cover ;">
-                    <div class="container">
-                        <div class="row">
-                            <div class="htc__footer__wrap clearfix">
-                                <!-- Start Single Footer -->
-                                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                                    <div class="footer foo">
-                                        <div class="footer__widget">
-                                            <h2 class="ft__title">{{ilang('block.aboutus')}}</h2>
-                                        </div>
-                                        <div class="ft__details">
-                                            <p>{{ilang('about.shortDescription')}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Footer -->
-                                <!-- Start Single Footer -->
-                                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12 xmt-40">
-                                    <div class="footer quick__link foo">
-                                        <div class="footer__widget">
-                                            <h2 class="ft__title">{{ilang('block.quicklink')}}</h2>
-                                        </div>
-                                        <div class="footer__link">
-                                            <ul class="ft__menu">
-                                                <li v-for="(value, name) in ilang('menu')"><a v-bind:href="value">{{name}}</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Single Footer -->
-                                <!-- Start Single Footer -->
-                                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12 smt-40 xmt-40">
-                                    <div class="footer foo">
-                                        <div class="footer__widget">
-                                            <h2 class="ft__title">{{ilang('block.instagram')}}</h2>
-                                        </div>
-                                        <ul class="footer__instagram">
-                                            <li v-for="item in instagram"><a href="#"><img v-bind:src="item" alt="images"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- End Single Footer -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="copyright bg__theme">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="copyright__inner">
-                                    <p>Copyright <a href="#" target="_blank">Devitems</a>
-                                    All Rights Reserved 2020</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <customfooter></customfooter>
             <!-- End Footer Area -->
+            <a id="back-to-top" v-on:click="scrollTop()" v-bind:class="{show: showScrollTop}">
+                <i class='fa fa-angle-up'></i>
+            </a>
         </div>
     </div>
     <!-- Body main wrapper end -->
@@ -422,15 +170,7 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- All js plugins included in this file. -->
     <script src="js/plugins.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <!-- Waypoints.min.js. -->
-    <script src="js/waypoints.min.js"></script>
     <!-- Main js file that contents all jQuery plugins activation. -->
     <script src="js/main.js"></script>
-
 </body>
-
-
-
 </html>
