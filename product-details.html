@@ -68,7 +68,7 @@
                     </div>
                     <div class="col-md-10 col-sm-6 col-xs-5">
                         <nav class="hidden-xs hidden-sm">
-                            <nested-menu v-bind:list="menu" v-bind:main="true" v-bind:page="'products.html'"></nested-menu>
+                            <nested-menu v-bind:list="menu" v-bind:main="true" v-bind:bread="'1'"></nested-menu>
                         </nav>
                         <div class="mobile-menu visible-xs visible-sm">
                             <nav id="mobile_dropdown">
@@ -84,7 +84,7 @@
         </div>
         <!-- End Header Style -->
         <!-- Start Bradcaump area -->
-        <breadcrumb bread="1"></breadcrumb>
+        <breadcrumb v-bind:bread="getQuery().bread" v-bind:menu="menu"></breadcrumb>
         <!-- End Bradcaump area -->
         <!-- Start Title Area -->
         <section class="bg__white pt--100">
@@ -122,7 +122,6 @@
                                 <ul>
                                     <li>{{ilang('productcode')}} : {{product.currentProduct.code}}</li>
                                     <li>{{ilang('origin')}} : {{product.currentProduct.origin}}</li>
-                                    <li>{{ilang('views')}} : {{product.currentProduct.views}}</li>
                                 </ul>
                             </div>
                             <div class="product-long-description">
@@ -138,10 +137,10 @@
                         <div class="product-info-main">
                             <h2>{{ilang('block.specifications')}}</h2>
                             <ul>
-                                <li v-for="(item, name) in product.currentProduct.specifications">
-                                    <a v-bind:href="'#specifications' + item.id"  data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">{{name}}<i class="fa fa-chevron-down"></i></a>
-                                    <ul class="collapse" v-bind:id="'specifications' + item.id">
-                                        <li v-for="(val, para) in item" v-if="para !== 'id'">
+                                <li v-for="(item, index) in product.currentProduct.specifications">
+                                    <a v-bind:href="'#specifications' + index"  data-toggle="collapse" v-bind:aria-expanded="index==0" class="dropdown-toggle collapsed">{{item.name}}<i class="fa fa-chevron-down"></i></a>
+                                    <ul v-bind:class="{collapse: index!=0}" v-bind:id="'specifications' + index">
+                                        <li v-for="(val, para) in item.data">
                                             <a>{{para}}</a>
                                             <a>{{val}}</a>
                                         </li>
@@ -172,7 +171,7 @@
         </section>
         <!-- End Service Area -->
          <!-- Start Footer Area -->
-         <customfooter></customfooter>
+         <customfooter v-bind:menu="menu"></customfooter>
          <!-- End Footer Area -->
          <a id="back-to-top" class="transition" v-on:click="scrollTop()" v-bind:class="{show: showScrollTop}">
              <i class='fa fa-angle-up'></i>
@@ -192,6 +191,8 @@
     <!-- All js plugins included in this file. -->
     <script src="js/plugins.js"></script>
     <!-- Main js file that contents all jQuery plugins activation. -->
+    <script src="js/menu.js"></script>
+    <script src="js/products.js"></script>
     <script src="js/main.js"></script>
 </body>
 

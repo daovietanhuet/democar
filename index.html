@@ -64,7 +64,7 @@
                             </div>
                             <div class="col-md-10 col-sm-6 col-xs-5">
                                 <nav class="hidden-xs hidden-sm">
-                                    <nested-menu v-bind:list="menu" v-bind:main="true" v-bind:page="'index.html'"></nested-menu>
+                                    <nested-menu v-bind:list="menu" v-bind:main="true" v-bind:bread="'0'"></nested-menu>
                                 </nav>
                                 <div class="mobile-menu visible-xs visible-sm">
                                     <nav id="mobile_dropdown">
@@ -85,7 +85,7 @@
                     <div 
                         class="swiper-slide" 
                         v-for="item in ilang('slides')"
-                        v-bind:style="{background: 'rgba(0, 0, 0, 0) url(' + item.background + ') no-repeat scroll 0 0 / cover'}" 
+                        v-bind:style="{background: 'rgba(0, 0, 0, 0) url(' + item + ') no-repeat scroll 0 0 / cover', 'background-position': 'center'}" 
                         style="height: 500px; width: 100%"
                     ></div>
                 </div>
@@ -151,7 +151,7 @@
             </section>
             <!-- End Latest Project Area -->
             <!-- Start Footer Area -->
-            <customfooter></customfooter>
+            <customfooter v-bind:menu="menu"></customfooter>
             <!-- End Footer Area -->
             <a id="back-to-top" v-on:click="scrollTop()" v-bind:class="{show: showScrollTop}">
                 <i class='fa fa-angle-up'></i>
@@ -171,6 +171,8 @@
     <!-- All js plugins included in this file. -->
     <script src="js/plugins.js"></script>
     <!-- Main js file that contents all jQuery plugins activation. -->
+    <script src="js/menu.js"></script>
+    <script src="js/products.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

@@ -66,7 +66,7 @@
                     </div>
                     <div class="col-md-10 col-sm-6 col-xs-5">
                         <nav class="hidden-xs hidden-sm">
-                            <nested-menu v-bind:list="menu" v-bind:main="true" v-bind:page="'about.html'"></nested-menu>
+                            <nested-menu v-bind:list="menu" v-bind:main="true" v-bind:bread="getQuery().bread"></nested-menu>
                         </nav>
                         <div class="mobile-menu visible-xs visible-sm">
                             <nav id="mobile_dropdown">
@@ -82,7 +82,7 @@
         </div>
         <!-- End Header Style -->
         <!-- Start Bradcaump area -->
-        <breadcrumb bread="2"></breadcrumb>
+        <breadcrumb v-bind:bread="getQuery().bread" v-bind:menu="menu"></breadcrumb>
         <!-- End Bradcaump area -->
         <!-- Start Offer Area -->
         <section class="bg__gray ptb--100">
@@ -118,7 +118,7 @@
         </section>
         <!-- End Offer Area -->
          <!-- Start Footer Area -->
-         <customfooter></customfooter>
+         <customfooter v-bind:menu="menu"></customfooter>
          <!-- End Footer Area -->
          <a id="back-to-top" class="transition" v-on:click="scrollTop()" v-bind:class="{show: showScrollTop}">
              <i class='fa fa-angle-up'></i>
@@ -138,6 +138,8 @@
     <!-- All js plugins included in this file. -->
     <script src="js/plugins.js"></script>
     <!-- Main js file that contents all jQuery plugins activation. -->
+    <script src="js/menu.js"></script>
+    <script src="js/products.js"></script>
     <script src="js/main.js"></script>
 
 </body>

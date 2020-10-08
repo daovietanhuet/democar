@@ -64,7 +64,7 @@
                     </div>
                     <div class="col-md-10 col-sm-6 col-xs-5">
                         <nav class="hidden-xs hidden-sm">
-                            <nested-menu v-bind:list="menu" v-bind:main="true" v-bind:page="'products.html'"></nested-menu>
+                            <nested-menu v-bind:list="menu" v-bind:main="true" v-bind:bread="getQuery().bread"></nested-menu>
                         </nav>
                         <div class="mobile-menu visible-xs visible-sm">
                             <nav id="mobile_dropdown">
@@ -80,13 +80,13 @@
         </div>
         <!-- End Header Style -->
         <!-- Start Bradcaump area -->
-        <breadcrumb bread="1"></breadcrumb>
+        <breadcrumb v-bind:bread="getQuery().bread" v-bind:menu="menu"></breadcrumb>
         <!-- End Bradcaump area -->
         <!-- Start Latest Project Area -->
         <div class="bg__white pt--100">
             <div class="container">
                 <div class="row">
-                    <h2 class="title__line--5">{{ilang('block.tintuc')}}</h2>
+                    <h2 class="title__line--5">{{menu[1].name}}</h2>
                 </div>
                 <div class="row">
                     <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12 smt-40 xmt-40">
@@ -100,8 +100,8 @@
                     </div>
                     <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
                 		<div class="row" style="padding-left: 1rem; padding-right: 1rem">
-                			<h2 class="sidebar__title">{{menu[1].name}}</h2>
-                			<nested-menu v-bind:nav="true" v-bind:list="menu[1].subroute"></nested-menu>
+                			<h2 class="sidebar__title">{{ilang('block.category')}}</h2>
+                			<nested-menu v-bind:nav="true" v-bind:list="getRef('1').ref.subroute"></nested-menu>
                 		</div>
                     </div>
                 </div>
@@ -109,7 +109,7 @@
         </div>
         <!-- End Latest Project Area -->
         <!-- Start Footer Area -->
-        <customfooter></customfooter>
+        <customfooter v-bind:menu="menu"></customfooter>
         <!-- End Footer Area -->
         <a id="back-to-top" v-on:click="scrollTop()" v-bind:class="{show: showScrollTop}">
             <i class='fa fa-angle-up'></i>
@@ -128,6 +128,8 @@
     <!-- All js plugins included in this file. -->
     <script src="js/plugins.js"></script>
     <!-- Main js file that contents all jQuery plugins activation. -->
+    <script src="js/menu.js"></script>
+    <script src="js/products.js"></script>
     <script src="js/main.js"></script>
 </body>
 

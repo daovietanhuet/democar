@@ -2,7 +2,7 @@ const lang = {
     en : {
         title: "Automatic",
         time: "7.30 AM  - 9.30 PM",
-        logoLink: "images/logo/sinply-construction.png",
+        logoLink: "images/logo/logo.png",
         phone: "(+84)377 669 361",
         hotline: "(+84)377 669 365",
         detailAddress: "Stock Building, 125 Main Street ",
@@ -20,6 +20,7 @@ const lang = {
             products: "PRODUCTS",
             latestproduct: "LATEST PRODUCTS",
             tintuc: "NEWS",
+            category: "CATEGORY",
             contactus: "Contact us",
             statistics: "REVENUE",
             revenue: "STATISTICS",
@@ -34,26 +35,21 @@ const lang = {
             specifications: "SPECIFICATIONS"
         },
         slides: [
-            {
-              background: "images/slider/bg/1.jpg",
-              time: "SINCE 2012",
-              title: "WE BUILDING TRUST",
-              content: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment",
-            }
+          "images/slider/1.jpg","images/slider/2.jpg","images/slider/3.jpg","images/slider/4.jpg"
         ],
         offers: [
             {
-              icon: "images/others/icon-2/1.png",
+              icon: "images/others/screw.svg",
               title: "TOP RATED",
               description: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled demoralized"
             },
             {
-              icon: "images/others/icon-2/2.png",
+              icon: "images/others/wheel.svg",
               title: "BEST QUALITY",
               description: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled demoralized"
             },
             {
-              icon: "images/others/icon-2/3.png",
+              icon: "images/others/phone.svg",
               title: "LOW COST",
               description: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled demoralized"
             }
@@ -69,7 +65,7 @@ const lang = {
     vi: {
         title: "Đại lý ô tô",
         time: "7.30 AM  - 9.30 PM",
-        logoLink: "images/logo/sinply-construction.png",
+        logoLink: "images/logo/logo.png",
         phone: "(+84)377 669 361",
         hotline: "(+84)377 669 365",
         detailAddress: "Stock Building, 125 Main Street ",
@@ -87,6 +83,7 @@ const lang = {
             latestproduct: "SẢN PHẨM NỔI BẬT",
             products: "CÁC SẢN PHẨM",
             tintuc: "TIN TỨC",
+            category: "DANH MỤC",
             contactus: "Liên hệ với chúng tôi",
             statistics: "THỐNG KÊ",
             revenue: "DOANH THU",
@@ -101,27 +98,22 @@ const lang = {
             specifications: "THÔNG SỐ KỸ THUẬT"
         },
         slides: [
-            {
-              background: "images/slider/bg/1.jpg",
-              time: "Từ 2012",
-              title: "CHÚNG TÔI XÂY DỰNG NIỀM TIN",
-              content: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment",
-            }
+          "images/slider/1.jpg","images/slider/2.jpg","images/slider/3.jpg","images/slider/4.jpg"
         ],
         offers: [
             {
-              icon: "images/others/icon-2/1.png",
-              title: "ƯA CHUỘNG",
+              icon: "images/others/screw.svg",
+              title: "BẢO DƯỠNG",
               description: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled demoralized"
             },
             {
-              icon: "images/others/icon-2/2.png",
-              title: "CHẤT LƯỢNG CAO",
+              icon: "images/others/wheel.svg",
+              title: "PHỤ TÙNG",
               description: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled demoralized"
             },
             {
-              icon: "images/others/icon-2/3.png",
-              title: "GIÁ RẺ",
+              icon: "images/others/phone.svg",
+              title: "LIÊN HỆ",
               description: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled demoralized"
             }
         ],
