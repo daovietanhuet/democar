@@ -207,12 +207,10 @@ const appVue = new Vue({
       {"route":"contact.html?bread=4","dirs":["index"],"bread":"4","name":"Liên hệ"}
     ],
     news: {
-      allNews: [],
-      currentNews: {}
+      allNews: []
     },
     product: {
-      allProducts: [],
-      currentProduct: {}
+      allProducts: []
     },
     local: window.localStorage.getItem('local') ? window.localStorage.getItem('local') : 'vi',
     scrollTrigger: 100,
@@ -271,15 +269,28 @@ const appVue = new Vue({
       }
     })
     this.product.allProducts = arr
-    this.product.currentProduct = products[this.getQuery().id || 0]
 
-    new Swiper('.swiper-container', {
+    let thumb = new Swiper('.swiper-thumb', {
+      spaceBetween: 10,
+      slidesPerView: 5,
+      loop: true,
+      freeMode: true,
+      watchSlidesVisibility: true,
+      loopedSlides: 5,
+      watchSlidesProgress: true,
+    })
+
+    new Swiper('#swiper-container', {
       direction: 'horizontal',
       loop: true,
+      loopedSlides: 5,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+      thumbs: {
+        swiper: thumb
+      }
     })
 
     this.scrollHandler();

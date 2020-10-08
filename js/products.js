@@ -8,7 +8,7 @@ const products = [
         specifications: [],
         bread: "1.0",
         imagesDirs: "images/products/exca-crawler/DX225LCA SLR/",
-        numberOfImages: 14
+        numberOfImages: 20
     },
     {
         code: "DX225LCA-2019",
@@ -19,7 +19,7 @@ const products = [
         specifications: [],
         bread: "1.0",
         imagesDirs: "images/products/exca-crawler/DX225LCA-2019/",
-        numberOfImages: 14
+        numberOfImages: 56
     },
     {
         code: "DX260LCA",

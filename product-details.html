@@ -89,7 +89,7 @@
         <!-- Start Title Area -->
         <section class="bg__white pt--100">
             <div class="container">
-                <h2 style="font-weight: 800; text-transform: uppercase;">{{product.currentProduct.name}}</h2>
+                <h2 style="font-weight: 800; text-transform: uppercase;">{{products[getQuery().id | 0].name}}</h2>
             </div>
         </section>
         <!-- Start Blog Area -->
@@ -97,22 +97,29 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">       
-                        <div class="full-image">
-                            <div v-for="(item, index) in product.currentProduct.images" role="tabpanel" v-bind:class="{'tab-pane fade' : index != 0, 'tab-pane fade in active': index == 0}" v-bind:id="'img-tab-' + index">
-                                <img v-bind:src="item" alt="full-image">
+                        <div class="swiper-container" id="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div 
+                                    class="swiper-slide" 
+                                    v-for="index in products[getQuery().id | 0].numberOfImages"
+                                    style="height: 500px; width: 100%; overflow: hidden; display: flex; justify-content: center; align-items: center"
+                                >
+                                    <img v-bind:src="products[getQuery().id | 0].imagesDirs + (index - 1) + '.jpg'" alt="full-image" style="height: 100%;">
+                                </div>
+                            </div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                        <div class="swiper-container swiper-thumb" style="height: 70px; margin-top: 20px;">
+                            <div class="swiper-wrapper">
+                                <div 
+                                    class="swiper-slide" 
+                                    v-for="index in products[getQuery().id | 0].numberOfImages"
+                                >
+                                    <img v-bind:src="products[getQuery().id | 0].imagesDirs + (index - 1) + '.jpg'" alt="full-image" style="height: 100%; width: 100%">
+                                </div>
                             </div>
                         </div>
-                        <!-- Start Small images -->
-                        <div class="nav nav-tabs">
-                            <ul role="tablist" class="prodict-det-small">
-                                <li v-for="(item, index) in product.currentProduct.images" role="presentation" class="{active : index == 0, '' : index !== 0}">
-                                    <a v-bind:href="'#img-tab-' + index" role="tab" data-toggle="tab">
-                                        <img  v-bind:src="item" alt="small-image">
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- End Small images --> 
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <!-- Start Single Item -->
@@ -120,12 +127,12 @@
                             <h2>{{ilang('block.productdetails')}}</h2>
                             <div class="product-info-list">
                                 <ul>
-                                    <li>{{ilang('productcode')}} : {{product.currentProduct.code}}</li>
-                                    <li>{{ilang('origin')}} : {{product.currentProduct.origin}}</li>
+                                    <li>{{ilang('productcode')}} : {{products[getQuery().id | 0].code}}</li>
+                                    <li>{{ilang('origin')}} : {{products[getQuery().id | 0].origin}}</li>
                                 </ul>
                             </div>
                             <div class="product-long-description">
-                                {{product.currentProduct.fullDescription}}
+                                {{products[getQuery().id | 0].fullDescription}}
                             </div>
                         </div>
                         <!-- End Single Item -->
@@ -137,7 +144,7 @@
                         <div class="product-info-main">
                             <h2>{{ilang('block.specifications')}}</h2>
                             <ul>
-                                <li v-for="(item, index) in product.currentProduct.specifications">
+                                <li v-for="(item, index) in products[getQuery().id | 0].specifications">
                                     <a v-bind:href="'#specifications' + index"  data-toggle="collapse" v-bind:aria-expanded="index==0" class="dropdown-toggle collapsed">{{item.name}}<i class="fa fa-chevron-down"></i></a>
                                     <ul v-bind:class="{collapse: index!=0}" v-bind:id="'specifications' + index">
                                         <li v-for="(val, para) in item.data">
