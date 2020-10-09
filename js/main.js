@@ -160,7 +160,7 @@ Vue.component('breadcrumb', {
       for(let i = 0; i < this.listIndex.length; i ++){
         if(eval(this.getRoute(i)))
           res += 
-          `<a class="breadcrumb-item" v-bind:href="${eval(this.getRoute(i) + '.route')}">${eval(this.getRoute(i) + '.name')}</a>
+          `<a class="breadcrumb-item" href="${eval(this.getRoute(i) + '.route')}">${eval(this.getRoute(i) + '.name')}</a>
           `
           if(i !== this.listIndex.length - 1) res += `<span class="brd-separetor">-</span>`
       }
@@ -261,18 +261,24 @@ const appVue = new Vue({
   mounted() {
     window.localStorage.getItem('local') ? {} : window.localStorage.setItem('local', 'vi')
     this.menu = main_menu
-    let arr = [];
-    products.map((item, index) => {
-      if(item.bread.startsWith(this.getQuery().bread || '1')){
-        item.id = index
-        arr.push(item)
-      }
-    })
-    this.product.allProducts = arr
+
+    if(this.pageId == 0 || this.pageId == 1 || this.pageId == 5) {
+      let arr_prod = [];
+      products.map((item, index) => {
+        if(item.bread.startsWith( this.getQuery().bread || '1')){
+          item.id = index
+          arr_prod.push(item)
+        }
+      })
+      this.product.allProducts = arr_prod
+    }
 
     let thumb = new Swiper('.swiper-thumb', {
       spaceBetween: 10,
       slidesPerView: 5,
+      loadPrevNextAmount: 5,
+      preloadImages: false,
+      lazy: true,
       loop: true,
       freeMode: true,
       watchSlidesVisibility: true,
@@ -284,6 +290,9 @@ const appVue = new Vue({
       direction: 'horizontal',
       loop: true,
       loopedSlides: 5,
+      preloadImages: false,
+      loadPrevNextAmount: 5,
+      lazy: true,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',

@@ -1,6 +1,5 @@
 const lang = {
     en : {
-        title: "Automatic",
         time: "7.30 AM  - 9.30 PM",
         logoLink: "images/logo/logo.png",
         phone: "(+84)377 669 361",
@@ -63,7 +62,6 @@ const lang = {
         }
     },
     vi: {
-        title: "Đại lý ô tô",
         time: "7.30 AM  - 9.30 PM",
         logoLink: "images/logo/logo.png",
         phone: "(+84)377 669 361",
