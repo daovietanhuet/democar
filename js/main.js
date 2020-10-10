@@ -174,7 +174,7 @@ Vue.component('breadcrumb', {
   },
   //
   template: `
-  <div data--black__overlay="6" style="background: rgba(0, 0, 0, 0) url(images/bg/footer.jpg) no-repeat scroll center center / cover ;">
+  <div data--black__overlay="6" v-bind:style="{background: 'rgba(0, 0, 0, 0) url(images/bg/bread/' + bread + '.jpg) no-repeat scroll center center / cover'}">
             <div class="bradcaump__wrap">
                 <div class="container">
                     <div class="row">
