@@ -5,7 +5,21 @@ const products = [
         shortDescription: "",
         fullDescription: "",
         origin: "Hàn Quốc",
-        specifications: [],
+        specifications: [
+            {
+                name: "Động cơ",
+                data: {
+                    "Công suất": "100kW",
+                    "Kiểu động cơ": "Sử dụng kim cơ"
+                }
+            },
+            {
+                name: "Bơm thủy lực",
+                data: {
+                    "Loại bơm":"bơm Đức"
+                }
+            }
+        ],
         bread: "1.0",
         imagesDirs: "images/products/exca-crawler/DX225LCA SLR/",
         numberOfImages: 20

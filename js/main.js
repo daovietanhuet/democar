@@ -289,6 +289,9 @@ const appVue = new Vue({
     new Swiper('#swiper-container', {
       direction: 'horizontal',
       loop: true,
+      autoplay: {
+        delay: 3000,
+      },
       loopedSlides: 5,
       preloadImages: false,
       loadPrevNextAmount: 5,

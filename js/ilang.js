@@ -1,10 +1,15 @@
+const slides = {
+  imageDir: 'images/slider/',
+  imageNum: 9
+}
+
 const lang = {
     en : {
-        time: "7.30 AM  - 9.30 PM",
+        time: "7.00 AM  - 6.00 PM",
         logoLink: "images/logo/logo.png",
-        phone: "(+84)377 669 361",
-        hotline: "(+84)377 669 365",
-        detailAddress: "Stock Building, 125 Main Street ",
+        phone: "(+84)987 216 007",
+        hotline: "(+84)912 63 55 00",
+        detailAddress: "Tòa nhà tập đoàn Thành Công ",
         address: "1st Lane, San Francisco, USA",
         email: "daovietanhsky@gmail.com",
         website: "http://daovietanh.github.io",
@@ -33,9 +38,6 @@ const lang = {
             relatedproduct: "RELATED PRODUCT",
             specifications: "SPECIFICATIONS"
         },
-        slides: [
-          "images/slider/1.jpg","images/slider/2.jpg","images/slider/3.jpg","images/slider/4.jpg"
-        ],
         offers: [
             {
               icon: "images/others/screw.svg",
@@ -62,14 +64,14 @@ const lang = {
         }
     },
     vi: {
-        time: "7.30 AM  - 9.30 PM",
+        time: "7.00 AM  - 6.00 PM",
         logoLink: "images/logo/logo.png",
-        phone: "(+84)377 669 361",
-        hotline: "(+84)377 669 365",
-        detailAddress: "Stock Building, 125 Main Street ",
-        address: "1st Lane, San Francisco, USA",
-        email: "daovietanhsky@gmail.com",
-        website: "http://daovietanh.github.io",
+        phone: "(+84)987 216 007",
+        hotline: "(+84)912 63 55 00",
+        detailAddress: "Tòa nhà Tập đoàn Thành Công ",
+        address: "Dịch Vọng hậu, Cầu Giấy, Hà Nội, Việt Nam",
+        email: "duan.doosanvietnam@gmail.com",
+        website: "https://doosanthanhcong.com",
         productcode: "Mã sản phẩm",
         origin: "Xuất xứ",
         views: "Lượt xem",
@@ -102,17 +104,17 @@ const lang = {
             {
               icon: "images/others/screw.svg",
               title: "BẢO DƯỠNG",
-              description: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled demoralized"
+              description: "Bảo dưỡng theo định kỳ nhà sản xuất vào các thời điểm máy làm việc được: 500h - 1700h - 3000h. Bảo dưỡng tại địa điểm máy làm việc"
             },
             {
               icon: "images/others/wheel.svg",
               title: "PHỤ TÙNG",
-              description: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled demoralized"
+              description: "Chúng tôi không chỉ cung cấp phụ tùng cho công tác bảo hành, bảo dưỡng máy mới mà còn kinh doanh phụ tùng trên toàn quốc nên phụ tùng luôn sẵn có tại tổng kho Doosan của hãng. Đáp ứng 90% phụ tùng cho máy"
             },
             {
               icon: "images/others/phone.svg",
               title: "LIÊN HỆ",
-              description: "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled demoralized"
+              description: `Liên hệ: (+84)987 216 007`
             }
         ],
         messageForm: {
