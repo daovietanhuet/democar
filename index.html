@@ -77,10 +77,20 @@
             <!-- Start Slider Area -->
             <div class="swiper-container" id="swiper-container">
                 <div class="swiper-wrapper">
+                    <div
+                        class="swiper-slide" 
+                        style="
+                            height: 500px; 
+                            width: 100%;
+                            background: rgba(0, 0, 0, 0) url(images/slider/1.jpg) no-repeat scroll 0 0 / cover;
+                            background-position: center
+                        "
+                    >
+                    </div>
                     <div 
                         class="swiper-slide" 
                         v-for="item in slides.imageNum"
-                        v-bind:style="{background: 'rgba(0, 0, 0, 0) url(' + slides.imageDir + item + '.jpg' + ') no-repeat scroll 0 0 / cover', 'background-position': 'center'}" 
+                        v-bind:style="{background: 'rgba(0, 0, 0, 0) url(' + slides.imageDir + (item+1) + '.jpg' + ') no-repeat scroll 0 0 / cover', 'background-position': 'center'}" 
                         style="height: 500px; width: 100%"
                     >
                     </div>

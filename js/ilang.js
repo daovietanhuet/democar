@@ -1,6 +1,6 @@
 const slides = {
   imageDir: 'images/slider/',
-  imageNum: 9
+  imageNum: 8
 }
 
 const lang = {
