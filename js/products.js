@@ -22,7 +22,7 @@ const products = [
         ],
         bread: "1.0",
         imagesDirs: "images/products/exca-crawler/DX225LCA SLR/",
-        numberOfImages: 20
+        numberOfImages: 21
     },
     {
         code: "DX225LCA-2019",
@@ -33,7 +33,7 @@ const products = [
         specifications: [],
         bread: "1.0",
         imagesDirs: "images/products/exca-crawler/DX225LCA-2019/",
-        numberOfImages: 56
+        numberOfImages: 57
     },
     {
         code: "DX260LCA",
@@ -44,7 +44,7 @@ const products = [
         specifications: [],
         bread: "1.0",
         imagesDirs: "images/products/exca-crawler/dx260lca/",
-        numberOfImages: 14
+        numberOfImages: 52
     },
     {
         code: "DX300LCA-2019",
@@ -55,7 +55,7 @@ const products = [
         specifications: [],
         bread: "1.0",
         imagesDirs: "images/products/exca-crawler/DX300LCA-2019/",
-        numberOfImages: 14
+        numberOfImages: 31
     },
     {
         code: "DX340LCA-2019",
@@ -66,7 +66,7 @@ const products = [
         specifications: [],
         bread: "1.0",
         imagesDirs: "images/products/exca-crawler/DX340LCA-2019/",
-        numberOfImages: 14
+        numberOfImages: 44
     },
     {
         code: "DX480LCA",
@@ -77,7 +77,7 @@ const products = [
         specifications: [],
         bread: "1.0",
         imagesDirs: "images/products/exca-crawler/DX480LCA/",
-        numberOfImages: 14
+        numberOfImages: 5
     },
     {
         code: "DX520 SLR",
@@ -88,7 +88,7 @@ const products = [
         specifications: [],
         bread: "1.0",
         imagesDirs: "images/products/exca-crawler/DX520 SLR/",
-        numberOfImages: 14
+        numberOfImages: 2
     },
     {
         code: "DX520LCA-K",
@@ -99,7 +99,7 @@ const products = [
         specifications: [],
         bread: "1.0",
         imagesDirs: "images/products/exca-crawler/DX520LCA-K/",
-        numberOfImages: 14
+        numberOfImages: 13
     },
     {
         code: "DX530LC",
@@ -110,7 +110,7 @@ const products = [
         specifications: [],
         bread: "1.0",
         imagesDirs: "images/products/exca-crawler/DX530LC/",
-        numberOfImages: 14
+        numberOfImages: 7
     },
     {
         code: "DX800LC",
@@ -121,7 +121,7 @@ const products = [
         specifications: [],
         bread: "1.0",
         imagesDirs: "images/products/exca-crawler/DX800LC/",
-        numberOfImages: 14
+        numberOfImages: 6
     },
     {
         code: "DX55W",
@@ -143,7 +143,7 @@ const products = [
         specifications: [],
         bread: "1.1",
         imagesDirs: "images/products/exca-wheel/DX140W-normal/",
-        numberOfImages: 14
+        numberOfImages: 16
     },
     {
         code: "DX140W",
@@ -154,7 +154,7 @@ const products = [
         specifications: [],
         bread: "1.1",
         imagesDirs: "images/products/exca-wheel/DX140W-outrigger/",
-        numberOfImages: 14
+        numberOfImages: 17
     },
     {
         code: "DX190WA",
@@ -165,7 +165,7 @@ const products = [
         specifications: [],
         bread: "1.1",
         imagesDirs: "images/products/exca-wheel/DX190WA/",
-        numberOfImages: 14
+        numberOfImages: 61
     },
     {
         code: "DX210WA",
@@ -176,7 +176,7 @@ const products = [
         specifications: [],
         bread: "1.1",
         imagesDirs: "images/products/exca-wheel/DX210WA/",
-        numberOfImages: 14
+        numberOfImages: 79
     },
     {
         code: "SD300N-2019",
@@ -187,7 +187,7 @@ const products = [
         specifications: [],
         bread: "1.2",
         imagesDirs: "images/products/exca-heavy/SD300N-2019/",
-        numberOfImages: 14
+        numberOfImages: 61
     },
     {
         code: "SD300N-2020",
@@ -198,7 +198,7 @@ const products = [
         specifications: [],
         bread: "1.2",
         imagesDirs: "images/products/exca-heavy/SD300N-2020/",
-        numberOfImages: 14
+        numberOfImages: 35
     },
     {
         code: "Doosan",
@@ -209,7 +209,7 @@ const products = [
         specifications: [],
         bread: "1.3",
         imagesDirs: "images/products/doosan-forklift/",
-        numberOfImages: 14
+        numberOfImages: 13
     },
     {
         code: "Doosan",
@@ -220,7 +220,7 @@ const products = [
         specifications: [],
         bread: "1.4.0",
         imagesDirs: "images/products/accessory/hammer/doosan-hammer/",
-        numberOfImages: 14
+        numberOfImages: 15
     },
     {
         code: "DX55W",
@@ -231,7 +231,7 @@ const products = [
         specifications: [],
         bread: "1.4.0",
         imagesDirs: "images/products/accessory/hammer/doosan-hammer-dx55w/",
-        numberOfImages: 14
+        numberOfImages: 22
     },
     {
         code: "Mega",
@@ -242,7 +242,7 @@ const products = [
         specifications: [],
         bread: "1.4.0",
         imagesDirs: "images/products/accessory/hammer/mega-hammer/",
-        numberOfImages: 14
+        numberOfImages: 6
     },
     {
         code: "Soosan & EDT",
@@ -253,7 +253,7 @@ const products = [
         specifications: [],
         bread: "1.4.0",
         imagesDirs: "images/products/accessory/hammer/soosan-edt-hammer/",
-        numberOfImages: 14
+        numberOfImages: 6
     },
     {
         code: "Doosan accessary",
@@ -264,6 +264,6 @@ const products = [
         specifications: [],
         bread: "1.5.0",
         imagesDirs: "images/products/doosan-accessary/",
-        numberOfImages: 23
+        numberOfImages: 24
     },
 ]

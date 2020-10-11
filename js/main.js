@@ -258,6 +258,9 @@ const appVue = new Vue({
       return {root: breadPage[rootIndex], ref: eval(query), query: query}
     },
   },
+  updated() {
+    console.log('updated');
+  },
   mounted() {
     window.localStorage.getItem('local') ? {} : window.localStorage.setItem('local', 'vi')
     this.menu = main_menu
