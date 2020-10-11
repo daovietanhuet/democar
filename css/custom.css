@@ -421,11 +421,29 @@ color: #fcc236;
 .heaher__top__left li i {
   padding-right: 12px;
 }
-
 .heaher__top__left {
   align-items: center;
   display: flex;
   height: 45px;
+}
+
+.heaher__top__right li {
+  color: #fff;
+  font-size: 12px;
+}
+.heaher__top__right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 45px;
+  width: 100%
+}
+.heaher__top__right li + li {
+  margin-left: 20px;
+}
+.heaher__top__right li img {
+  height: 35px;
+  cursor: pointer;
 }
 
 .logo a{

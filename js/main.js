@@ -105,9 +105,9 @@ Vue.component('customfooter', {
                           </div>
                           <div class="ft__details">
                               <p> <i class="zmdi zmdi-pin"></i> {{ilang('detailAddress', local)}} <br> {{ilang('address', local)}} </p>
-                              <p> <i class="fa fa-envelope"></i> <a href="#">{{ilang('email', local)}}</a></p>
-                              <p> <i class="fa fa-globe" aria-hidden="true"></i> <a href="#">{{ilang('website', local)}}</a></p>
-                              <p> <i class="fa fa-phone" aria-hidden="true"></i> <a href="#">{{ilang('hotline', local)}}</a></p>
+                              <p> <i class="fa fa-envelope"></i> <a v-bind:href="'mailto:' + ilang('email', local)">{{ilang('email', local)}}</a></p>
+                              <p> <i class="fa fa-globe" aria-hidden="true"></i> <a v-bind:href="ilang('website', local)">{{ilang('website', local)}}</a></p>
+                              <p> <i class="fa fa-phone" aria-hidden="true"></i> <a v-bind:href="'tel:' + ilang('phone', local)">{{ilang('hotline', local)}}</a></p>
                           </div>
                       </div>
                   </div>
@@ -256,6 +256,11 @@ const appVue = new Vue({
       let query = bread ? 'this.menu[' + bread.split('.').join('].subroute[') + ']' : 'this.menu'
       let rootIndex = bread ? bread.split('.')[0] : '0'
       return {root: breadPage[rootIndex], ref: eval(query), query: query}
+    },
+    changeLang(lang){
+      this.local = lang;
+      window.localStorage.setItem('local', lang);
+      window.location.reload()
     },
   },
   mounted() {

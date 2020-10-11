@@ -41,7 +41,13 @@
                         <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
                             <ul class="heaher__top__left hidden-xs hidden-sm">
                                 <li><i class="fa fa-clock-o"></i>{{ilang('time')}}</li>
-                                <li><a href="#"><i class="fa fa-phone"></i>{{ilang('phone')}}</a></li>
+                                <li><a v-bind:href="'tel:' + ilang('phone')"><i class="fa fa-phone"></i>{{ilang('phone')}} &nbsp - &nbsp {{ilang('hotline')}}</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                            <ul class="heaher__top__right hidden-xs hidden-sm">
+                                <li><img src="images/others/vietnam.svg" v-on:click="changeLang('vi')"></li>
+                                <li><img src="images/others/united-kingdom.svg" v-on:click="changeLang('en')"></li>
                             </ul>
                         </div>
                     </div>
